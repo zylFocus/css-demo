@@ -1,0 +1,17 @@
+.container {
+    container-type: inline-size;
+}
+/* .container::-webkit-resizer{
+  background-color: royalblue;
+  height: 500px;
+} */
+.avatar-container {
+  container-type: inline-size;
+}
+.father {
+  width: 800px;
+  container-type: inline-size;
+}
+.zzz-container {
+  font-size: 2cqw;
+} 

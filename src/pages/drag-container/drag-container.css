@@ -1,0 +1,41 @@
+.drag-container {
+  display: flex;
+  height: 100vh;
+}
+aside {
+  width: 200px;
+  height: 100%;
+}
+main {
+  flex: 1;
+  height: 100%;
+}
+aside {
+  position: relative;
+  overflow: hidden;
+  width: fit-content;
+}
+.resize-1 {
+  width: 200px;
+  height: 16px;
+  transform: scaleY(200);
+  overflow: scroll;
+  resize: horizontal;
+  opacity: 0;
+}
+.line-1 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4px;
+  bottom: 0;
+  background-color: royalblue;
+  opacity: 0;
+  transition: 0.3s;
+  pointer-events: none;
+}
+
+.resize-1:hover + .line-1,
+.resize-1:active + .line-1 {
+  opacity: 1;
+}

@@ -1,0 +1,13 @@
+@keyframes grow-x {
+    0% {
+        transform: scaleX(0);
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+.scroll-process {
+    animation: grow-x 3s linear;
+    animation-timeline: scroll(y);
+}

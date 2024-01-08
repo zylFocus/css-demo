@@ -1,0 +1,19 @@
+
+.has-scroll-top-divider::before {
+    content: '';
+    @apply block w-full border-b border-solid border-gray-300 z-10 top-0 sticky
+}
+.has-scroll-top-divider::after {
+    content: '';
+    @apply w-full h-px bg-[#fff] z-30 top-0 absolute
+}
+
+/* 
+.has-scroll-bottom-divider::before {
+    content: '';
+    @apply block w-full h-px bg-[#fff] relative z-10
+}
+.has-scroll-bottom-divider::after {
+    content: '';
+    @apply block w-full border-t border-solid border-gray-300 sticky bottom-0
+} */

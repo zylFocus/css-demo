@@ -1,0 +1,43 @@
+.motion-path-item {
+    offset-path: path("M 0 80 C 80 10, 130 10, 190 80 S 300 150, 360 80");
+    animation: move 2000ms infinite alternate ease-in-out;
+}
+@keyframes move {
+    0% {
+        offset-distance: 0%;
+    }
+    100% {
+        offset-distance: 100%;
+    }
+}
+
+.arrow {
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
+    offset-path: path("M 350 40 C 1000 1000, -350 1000, 350 1960");
+    animation: move 4s linear;
+    animation-timeline: scroll(root);
+}
+
+.g-svg {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 700px;
+    height: 2000px;
+    transform: translate(-50%, 0);
+}
+#svgpath {
+    stroke: #9bc9de;
+    stroke-width: 3px;
+    stroke-dasharray: 2108, 2108;
+    animation: lineMove 4s linear;
+    animation-timeline: scroll(root);
+}
+@keyframes lineMove {
+    0% {
+        stroke-dashoffset: 2108;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
