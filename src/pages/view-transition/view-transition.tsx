@@ -7,7 +7,7 @@ export interface ViewTransitionProps extends HTMLProps<HTMLDivElement> {}
 export const ViewTransition = (props: ViewTransitionProps) => {
   const { className = '', ...restProps } = props
 
-  const itemList = new Array(20).fill(1).map((_, index) => index + 1)
+  const itemList = new Array(10).fill(1).map((_, index) => index + 1)
   return (
     <div className={classNames('w-[550px] m-auto', className)} {...restProps}>
       <h2>点击开始删除</h2>

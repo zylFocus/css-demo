@@ -7,15 +7,15 @@ const ScrollContainer = ({ children, className }: { children: ReactNode; classNa
   return (
     <div className={classNames('relative overflow-auto', className)}>
       {/* 滚动才出现的分割线 上 */}
-      <div className={classNames('w-full border-b border-solid border-gray-300 z-10 top-0 sticky')}></div>
+      <div className={classNames('w-full border-b border-solid border-black z-10 top-0 sticky')}></div>
 
       <div className={classNames('w-full h-px bg-[#fff] z-30 top-0 absolute')}></div>
 
       {children}
 
       {/* 滚动才出现的分割线 下 */}
-      <div className={classNames('w-full h-px bg-[#fff] relative z-10')}></div>
-      <div className={classNames('w-full border-t border-solid border-gray-300 sticky bottom-0')}></div>
+      <div className={classNames('w-full h-0.5 bg-[#fff] relative z-10')}></div>
+      <div className={classNames('w-full border-t border-solid border-black sticky bottom-px')}></div>
     </div>
   )
 }

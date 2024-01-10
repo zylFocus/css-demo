@@ -9,11 +9,11 @@ interface CssFitTextProps extends HTMLProps<HTMLDivElement> {
 export const TextAvatar = ({ title }: { title: string }) => {
   return (
     <div>
-      {/* <div className="w-10 h-10 rounded-md shadow-lg bg-pink-400"></div>; */}
-      <div className="flex items-center justify-center w-[50px] h-[50px] rounded-md bg-pink-300 whitespace-nowrap">
-        <div className="relative before:content-[attr(data-data)] before:invisible text-[50px]" data-data={title}>
-          <div className="avatar-container absolute inset-0 flex justify-center items-center">
-            <span className="text-[calc(32px-10cqw)] truncate">{title}</span>
+      <div className="flex items-center justify-center w-[50px] h-[50px] rounded-md bg-orange-300 whitespace-nowrap">
+        <div className="relative">
+          <div className="text-[50px] invisible">{title}</div>
+          <div className={classNames('avatar-container w-full', 'absolute inset-0 flex justify-center items-center')}>
+            <span className="text-[calc(30px-10cqw)] truncate">{title}</span>
           </div>
         </div>
       </div>
@@ -36,17 +36,20 @@ export function CssFitText(props: CssFitTextProps) {
           青丘有坟立丘首，白狐盖坟口。 我于坟前三叩首，请狐为神胄。 狐狸与我共饮酒，护我游青丘。
         </p>
 
-        <p className="text-[#2d555f] text-[10%]">时间不在于你拥有多少，而在于你怎样使用</p>
+        <p className="text-[#2d555f]">时间不在于你拥有多少，而在于你怎样使用</p>
+      </div>
+      <h1>缩小时加粗</h1>
+      <div className="container w-[30%] border-solid border-px shadow-xl resize overflow-hidden">
+        <p className="text-[clamp(12px,4cqw,60px)] dufu-poem">
+          风急天高猿啸哀，渚清沙白鸟飞回。 无边落木萧萧下，不尽长江滚滚来。 万里悲秋常作客，百年多病独登台。
+          艰难苦恨繁霜鬓，潦倒新停浊酒杯。
+        </p>
       </div>
       <h1>自适应文本</h1>
       <div className="flex flex-col gap-2">
         {titleList.map(i => {
           return <TextAvatar title={i} />
         })}
-      </div>
-      <h1>测试查询容器</h1>
-      <div className="w-[500px]">
-        <div className="truncate w-[150px] h-10 zzz-container">世间兵刃万千，唯有过往伤人最深</div>
       </div>
     </div>
   )

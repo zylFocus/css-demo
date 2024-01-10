@@ -21,7 +21,7 @@ export const MotionPathAnimation = (props: MotionPathAnimationProps) => {
   )
 
   const scrollPathAnimation = (
-    <div className="relative">
+    <div className="relative w-[800px]">
       <svg className="g-svg" width="400" height="160" xmlns="http://www.w3.org/2000/svg">
         <path id="svgpath" d="M 350 40 C 1000 1000, -350 1000, 350 1960" stroke="black" fill="transparent" />
       </svg>
