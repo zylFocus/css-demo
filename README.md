@@ -3,61 +3,11 @@
 页面上经常需要分割线来划分区域，但有的分割线一直显示并不优雅，滚动时才出现会比较好，比如 ud 的 dialog
 ![](https://cdn.nlark.com/yuque/0/2024/gif/12830161/1704896702823-f5664dfe-faa7-4b86-b457-2157f01b721c.gif#averageHue=%23e7e9f3&clientId=u79b14509-fc38-4&from=paste&id=ue8f7477f&originHeight=1148&originWidth=1806&originalType=url&ratio=1.75&rotation=0&showTitle=false&status=done&style=none&taskId=uc173a71c-f3c7-43a2-8194-3a9385ac511&title=)
 由上图可以看到 ud 的 dialog 在 header 和 footer 处都有分割线，只有滚动使得有部分超出时才会出现。
-我们的 ux 在设计上也有很多类似的情况，如订单页面的抽屉、日志页面的筛选器：
-![](https://cdn.nlark.com/yuque/0/2024/gif/12830161/1704896702756-1b70c46a-2154-4d90-adbf-e1b315935e75.gif#averageHue=%23f6f6fc&clientId=u79b14509-fc38-4&from=paste&id=ue15a2c81&originHeight=948&originWidth=1316&originalType=url&ratio=1.75&rotation=0&showTitle=false&status=done&style=none&taskId=ucd5c2fe8-0729-412b-93f0-3094df08701&title=)
 ## ud 的做法:
 
 - 通过 scrollTop, scrollHeight, clientHeight 来判断是否有上下溢出
 - ResizeObserver 和 scroll 事件时去检测溢出
 
-下面的代码从 ud 拷过来的
-```
-function useCheckVerticalOverflow<T extends HTMLElement>({
-  target,
-}: {
-  target: ThunkElement<T>;
-}) {
-  const [overflowTop, setOverflowTop] = useState(false);
-  const [overflowBottom, setOverflowBottom] = useState(false);
-
-  const checkVerticalOverflow = useCallback(() => {
-    const targetEl = getThunkElement(target);
-    if (!targetEl) {
-      return;
-    }
-
-    const { scrollTop, scrollHeight, clientHeight } = targetEl;
-    const targetInset = {
-      top: 0,
-      bottom: clientHeight,
-    };
-    const childInset = {
-      top: -scrollTop,
-      bottom: -scrollTop + scrollHeight,
-    };
-
-    if (targetInset.top > childInset.top) {
-      setOverflowTop(true);
-    } else {
-      setOverflowTop(false);
-    }
-
-    if (targetInset.bottom < childInset.bottom) {
-      setOverflowBottom(true);
-    } else {
-      setOverflowBottom(false);
-    }
-  }, [target]);
-
-  return {
-    overflow: {
-      top: overflowTop,
-      bottom: overflowBottom,
-    },
-    checkVerticalOverflow,
-  };
-}
-```
 可以用js做，但是麻烦，性能也略差。
 ## 骚操作：纯html加css也能实现
 直接上图：
