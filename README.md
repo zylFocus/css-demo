@@ -1,9 +1,9 @@
 分享几个css的小技巧：
 # 1、滚动才出现的分割线
-页面上经常需要分割线来划分区域，但有的分割线一直显示并不优雅，滚动时才出现会比较好，比如 ud 的 dialog
+页面上经常需要分割线来划分区域，但有的分割线一直显示并不优雅，滚动时才出现会比较好，比如一些组件库的 dialog
 ![](https://cdn.nlark.com/yuque/0/2024/gif/12830161/1704896702823-f5664dfe-faa7-4b86-b457-2157f01b721c.gif#averageHue=%23e7e9f3&clientId=u79b14509-fc38-4&from=paste&id=ue8f7477f&originHeight=1148&originWidth=1806&originalType=url&ratio=1.75&rotation=0&showTitle=false&status=done&style=none&taskId=uc173a71c-f3c7-43a2-8194-3a9385ac511&title=)
-由上图可以看到 ud 的 dialog 在 header 和 footer 处都有分割线，只有滚动使得有部分超出时才会出现。
-## ud 的做法:
+由上图可以看到组件库的 dialog 在 header 和 footer 处都有分割线，只有滚动使得有部分超出时才会出现。
+## 组件库的做法:
 
 - 通过 scrollTop, scrollHeight, clientHeight 来判断是否有上下溢出
 - ResizeObserver 和 scroll 事件时去检测溢出
@@ -115,7 +115,7 @@ css 目前的媒体查询通常用来查视口的宽高，不能直接查询某�
 - [mp.weixin.qq.com](https://mp.weixin.qq.com/s/Xs143ON1nEiEYr6kt3fnXg)
 - [View Transitions API - Web API 接口参考 | MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/View_Transitions_API)
 
-之前锡铨分享过 flip 动画，flip对应着四个单词：First 、Last、Inverse、Play 。
+关于过渡有个思想是 flip 动画，flip对应着四个单词：First 、Last、Inverse、Play 。
 flip 是一种动画的制作思路，核心是记住开始和结束的状态，然后通过 transform 不影响布局的特点来反向设置一个 translate，然后倒转播放一下动画。
 然后这种思想已经渐渐的变成了 css 官方的 api，View Transition 的 API 设计和这个思想非常像，不能说非常像，简直就是一模一样。不过 css 把它集成为标准后，用起来很方便。
 先看几个案例
